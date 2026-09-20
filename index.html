@@ -1,0 +1,1666 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CleanMind — Sua jornada de recuperação começa aqui</title>
+  <meta name="description" content="CleanMind é o aplicativo que te acompanha na jornada de recuperação. Registre seus dias limpos, faça check-ins emocionais, enfrente desafios e conte com uma comunidade de apoio." />
+  <meta property="og:title" content="CleanMind — Sua jornada de recuperação" />
+  <meta property="og:description" content="Registre seus dias limpos, gerencie emoções e supere desafios com o CleanMind." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="CleanMind.jpg" type="image/jpeg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --primary: #5B8FA3;
+      --primary-dark: #4a7a8c;
+      --secondary: #4ECDC4;
+      --accent: #81C784;
+      --success: #66BB6A;
+      --warning: #FFB74D;
+      --bg: #f7fafc;
+      --card: #ffffff;
+      --text: #2d3748;
+      --text-secondary: #4a5568;
+      --text-light: #718096;
+      --border: #e2e8f0;
+      --shadow: rgba(91, 143, 163, 0.15);
+      --radius: 16px;
+      --radius-sm: 10px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===== NAV ===== */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(247, 250, 252, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .nav-logo-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      object-fit: cover;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .nav-logo-text {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.3px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-size: 15px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-cta {
+      background: var(--primary);
+      color: #fff !important;
+      padding: 10px 22px;
+      border-radius: 10px;
+      font-weight: 600 !important;
+      font-size: 14px !important;
+      transition: background 0.2s, transform 0.1s !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--primary-dark) !important;
+      color: #fff !important;
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 640px) {
+      .nav-links {
+        display: none;
+      }
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      padding: 100px 24px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 900px;
+      height: 900px;
+      background: radial-gradient(circle, rgba(78, 205, 196, 0.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(91, 143, 163, 0.1);
+      border: 1px solid rgba(91, 143, 163, 0.25);
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+      letter-spacing: 0.2px;
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      margin-bottom: 24px;
+      max-width: 780px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: clamp(16px, 2vw, 19px);
+      color: var(--text-secondary);
+      max-width: 560px;
+      margin: 0 auto 44px;
+      line-height: 1.7;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 72px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--primary);
+      color: #fff;
+      padding: 16px 32px;
+      border-radius: var(--radius);
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 8px 24px rgba(91, 143, 163, 0.35);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(91, 143, 163, 0.45);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--card);
+      color: var(--text);
+      padding: 16px 32px;
+      border-radius: var(--radius);
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1.5px solid var(--border);
+      transition: border-color 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 4px 16px var(--shadow);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px var(--shadow);
+    }
+
+    /* ===== PHONE MOCKUPS ===== */
+    .phones-container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 20px;
+      perspective: 1200px;
+    }
+
+    .phone {
+      width: 220px;
+      background: #1a202c;
+      border-radius: 36px;
+      padding: 12px;
+      box-shadow:
+        0 40px 80px rgba(0,0,0,0.22),
+        0 0 0 1px rgba(255,255,255,0.06),
+        inset 0 0 0 1px rgba(255,255,255,0.04);
+      position: relative;
+    }
+
+    .phone.center {
+      transform: translateY(-24px) scale(1.06);
+      z-index: 2;
+    }
+
+    .phone.side {
+      transform: rotateY(8deg) scale(0.92);
+      opacity: 0.85;
+    }
+
+    .phone.side-right {
+      transform: rotateY(-8deg) scale(0.92);
+      opacity: 0.85;
+    }
+
+    .phone-notch {
+      width: 80px;
+      height: 22px;
+      background: #1a202c;
+      border-radius: 0 0 14px 14px;
+      margin: 0 auto 8px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .phone-screen {
+      background: #2d3748;
+      border-radius: 26px;
+      overflow: hidden;
+      min-height: 380px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Screen 1 - Dashboard */
+    .screen-dashboard {
+      background: linear-gradient(160deg, #1a202c 0%, #2d3748 100%);
+    }
+
+    .screen-header {
+      background: #2d3748;
+      padding: 14px 16px 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .screen-header-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #f7fafc;
+    }
+
+    .screen-header-sub {
+      font-size: 10px;
+      color: #a0aec0;
+    }
+
+    .screen-body {
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+
+    .days-card {
+      background: linear-gradient(135deg, #4ECDC4, #5B8FA3);
+      border-radius: 16px;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .days-number {
+      font-size: 40px;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1;
+    }
+
+    .days-label {
+      font-size: 10px;
+      color: rgba(255,255,255,0.8);
+      font-weight: 500;
+      margin-top: 4px;
+    }
+
+    .mini-card {
+      background: rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .mini-card-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .mini-card-title {
+      font-size: 10px;
+      font-weight: 600;
+      color: #f7fafc;
+    }
+
+    .mini-card-sub {
+      font-size: 9px;
+      color: #a0aec0;
+    }
+
+    .progress-bar-bg {
+      background: rgba(255,255,255,0.1);
+      border-radius: 4px;
+      height: 5px;
+      margin-top: 4px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      background: linear-gradient(90deg, #4ECDC4, #81C784);
+    }
+
+    /* Screen 2 - Checkin */
+    .screen-checkin {
+      background: #f7fafc;
+    }
+
+    .screen-checkin .screen-header {
+      background: #fff;
+    }
+
+    .screen-checkin .screen-header-title {
+      color: #2d3748;
+    }
+
+    .screen-checkin .screen-body {
+      background: #f7fafc;
+    }
+
+    .emotion-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+    }
+
+    .emotion-chip {
+      background: #fff;
+      border-radius: 10px;
+      padding: 8px 4px;
+      text-align: center;
+      font-size: 8px;
+      color: #4a5568;
+      border: 1.5px solid #e2e8f0;
+      font-weight: 500;
+    }
+
+    .emotion-chip.selected {
+      background: rgba(91,143,163,0.1);
+      border-color: #5B8FA3;
+      color: #5B8FA3;
+    }
+
+    .emotion-emoji {
+      font-size: 16px;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* Screen 3 - Forum */
+    .screen-forum {
+      background: #f7fafc;
+    }
+
+    .forum-post {
+      background: #fff;
+      border-radius: 12px;
+      padding: 10px 12px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .forum-post-title {
+      font-size: 9px;
+      font-weight: 600;
+      color: #2d3748;
+      margin-bottom: 4px;
+    }
+
+    .forum-post-body {
+      font-size: 8px;
+      color: #718096;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .forum-post-footer {
+      display: flex;
+      gap: 10px;
+    }
+
+    .forum-tag {
+      font-size: 7px;
+      color: #5B8FA3;
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      .phones-container .phone.side,
+      .phones-container .phone.side-right {
+        display: none;
+      }
+
+      .phone.center {
+        transform: none;
+      }
+    }
+
+    /* ===== STATS ===== */
+    .stats-section {
+      padding: 60px 24px;
+      background: var(--card);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .stats-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 40px;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 42px;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: -1px;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-top: 6px;
+      font-weight: 500;
+    }
+
+    /* ===== SECTIONS COMMON ===== */
+    section {
+      padding: 90px 24px;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-tag {
+      display: inline-block;
+      background: rgba(91, 143, 163, 0.1);
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.8px;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      font-size: 17px;
+      color: var(--text-secondary);
+      max-width: 520px;
+      line-height: 1.7;
+    }
+
+    /* ===== FEATURES ===== */
+    #funcionalidades {
+      background: var(--bg);
+    }
+
+    .features-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .features-header .section-subtitle {
+      margin: 0 auto;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .feature-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px 28px;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 48px var(--shadow);
+      border-color: rgba(91, 143, 163, 0.3);
+    }
+
+    .feature-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .feature-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    .feature-desc {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    /* ===== HOW IT WORKS ===== */
+    #como-funciona {
+      background: var(--card);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .how-it-works-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .how-it-works-layout {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+    }
+
+    .steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .step {
+      display: flex;
+      gap: 20px;
+    }
+
+    .step-number {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #fff;
+      font-size: 16px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 6px 16px rgba(91, 143, 163, 0.3);
+    }
+
+    .step-content {}
+
+    .step-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .step-desc {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* Central visual for how it works */
+    .how-visual {
+      background: linear-gradient(145deg, #1a202c, #2d3748);
+      border-radius: 28px;
+      padding: 32px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      box-shadow: 0 32px 64px rgba(0,0,0,0.18);
+    }
+
+    .vis-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 14px;
+      padding: 14px 16px;
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .vis-icon {
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .vis-text {}
+
+    .vis-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #f7fafc;
+    }
+
+    .vis-sub {
+      font-size: 11px;
+      color: #a0aec0;
+    }
+
+    .vis-badge {
+      margin-left: auto;
+      background: rgba(78, 205, 196, 0.2);
+      color: #4ECDC4;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+
+    .vis-badge.green {
+      background: rgba(129, 199, 132, 0.2);
+      color: #81C784;
+    }
+
+    .vis-badge.orange {
+      background: rgba(255, 183, 77, 0.2);
+      color: #FFB74D;
+    }
+
+    /* ===== CHALLENGES ===== */
+    #desafios {
+      background: var(--bg);
+    }
+
+    .challenges-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .challenges-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    .challenges-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .challenge-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    .challenge-item:hover {
+      transform: translateX(4px);
+      box-shadow: 0 6px 24px var(--shadow);
+    }
+
+    .challenge-emoji {
+      font-size: 28px;
+    }
+
+    .challenge-info {}
+
+    .challenge-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .challenge-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    .challenge-days {
+      margin-left: auto;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--primary);
+      background: rgba(91, 143, 163, 0.1);
+      padding: 4px 12px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+
+    /* ===== COMMUNITY ===== */
+    #comunidade {
+      background: var(--card);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .community-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .community-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    .posts-preview {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .post-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      transition: box-shadow 0.2s;
+    }
+
+    .post-card:hover {
+      box-shadow: 0 8px 28px var(--shadow);
+    }
+
+    .post-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .post-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .post-author {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .post-time {
+      font-size: 12px;
+      color: var(--text-light);
+    }
+
+    .post-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .post-body {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+
+    .post-footer {
+      display: flex;
+      gap: 16px;
+      margin-top: 12px;
+    }
+
+    .post-action {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      color: var(--text-light);
+    }
+
+    /* ===== WELLNESS ===== */
+    .wellness-section {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      padding: 80px 24px;
+      text-align: center;
+    }
+
+    .wellness-inner {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .wellness-section h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.8px;
+      margin-bottom: 16px;
+    }
+
+    .wellness-section p {
+      font-size: 17px;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+
+    .wellness-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 20px;
+    }
+
+    .wellness-feat {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: var(--radius);
+      padding: 20px 16px;
+      backdrop-filter: blur(10px);
+    }
+
+    .wellness-feat-icon {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .wellness-feat-text {
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.4;
+    }
+
+    /* ===== DOWNLOAD ===== */
+    #download {
+      background: var(--bg);
+      text-align: center;
+    }
+
+    .download-inner {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .download-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 44px;
+    }
+
+    .store-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: #1a202c;
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.15s;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+
+    .store-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px rgba(0,0,0,0.22);
+    }
+
+    .store-btn-icon {
+      font-size: 28px;
+    }
+
+    .store-btn-text {}
+
+    .store-btn-sub {
+      font-size: 10px;
+      color: rgba(255,255,255,0.6);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .store-btn-name {
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .coming-soon-note {
+      margin-top: 20px;
+      font-size: 13px;
+      color: var(--text-light);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #1a202c;
+      color: rgba(255,255,255,0.6);
+      padding: 48px 24px 32px;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .footer-brand {}
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .footer-logo-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      object-fit: cover;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .footer-logo-text {
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .footer-brand-desc {
+      font-size: 13px;
+      line-height: 1.6;
+      max-width: 260px;
+    }
+
+    .footer-links-section {}
+
+    .footer-links-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 16px;
+    }
+
+    .footer-links-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links-list a {
+      text-decoration: none;
+      color: rgba(255,255,255,0.55);
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .footer-links-list a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-copy {
+      font-size: 13px;
+    }
+
+    .footer-love {
+      font-size: 13px;
+    }
+
+    .footer-love span {
+      color: #E57373;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <img src="CleanMind.jpg" alt="CleanMind logo" class="nav-logo-icon" />
+        <span class="nav-logo-text">CleanMind</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#funcionalidades">Funcionalidades</a></li>
+        <li><a href="#como-funciona">Como funciona</a></li>
+        <li><a href="#desafios">Desafios</a></li>
+        <li><a href="#comunidade">Comunidade</a></li>
+        <li><a href="#download" class="nav-cta">Baixar app</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badge">
+      &#10024; Disponivel para iOS e Android
+    </div>
+    <h1>Cada dia limpo<br/> <span>e uma nova conquista</span></h1>
+    <p>
+      O CleanMind te acompanha na jornada de recuperação com rastreamento de dias, check-ins emocionais, desafios e uma comunidade que entende você.
+    </p>
+    <div class="hero-buttons">
+      <a href="#download" class="btn-primary">
+        &#8595;&nbsp; Baixar grátis
+      </a>
+      <a href="#funcionalidades" class="btn-secondary">
+        Ver funcionalidades
+      </a>
+    </div>
+
+    <!-- Phone Mockups -->
+    <div class="phones-container">
+
+      <!-- Left phone: Check-in -->
+      <div class="phone side">
+        <div class="phone-notch"></div>
+        <div class="phone-screen screen-checkin">
+          <div class="screen-header">
+            <div>
+              <div class="screen-header-title" style="color:#2d3748">Check-in emocional</div>
+              <div class="screen-header-sub">Como voce esta hoje?</div>
+            </div>
+          </div>
+          <div class="screen-body">
+            <div style="font-size:9px;font-weight:600;color:#4a5568;margin-bottom:4px">Suas emocoes</div>
+            <div class="emotion-grid">
+              <div class="emotion-chip selected"><span class="emotion-emoji">&#128522;</span>Calmo</div>
+              <div class="emotion-chip"><span class="emotion-emoji">&#128522;</span>Ansioso</div>
+              <div class="emotion-chip selected"><span class="emotion-emoji">&#128522;</span>Feliz</div>
+              <div class="emotion-chip"><span class="emotion-emoji">&#128522;</span>Triste</div>
+              <div class="emotion-chip selected"><span class="emotion-emoji">&#128522;</span>Grato</div>
+              <div class="emotion-chip"><span class="emotion-emoji">&#128522;</span>Irritado</div>
+            </div>
+            <div style="background:#fff;border-radius:10px;padding:10px;border:1px solid #e2e8f0;margin-top:4px">
+              <div style="font-size:8px;color:#a0aec0">Adicionar uma nota...</div>
+            </div>
+            <div style="background:#5B8FA3;border-radius:10px;padding:10px;text-align:center;margin-top:4px">
+              <div style="font-size:10px;font-weight:700;color:#fff">Registrar check-in</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Center phone: Dashboard -->
+      <div class="phone center">
+        <div class="phone-notch"></div>
+        <div class="phone-screen screen-dashboard">
+          <div class="screen-header">
+            <div>
+              <div class="screen-header-title">Ola, Joao! &#128075;</div>
+              <div class="screen-header-sub">Continuar assim!</div>
+            </div>
+            <div style="font-size:18px">&#9728;</div>
+          </div>
+          <div class="screen-body">
+            <div class="days-card">
+              <div class="days-number">47</div>
+              <div class="days-label">DIAS LIMPOS</div>
+            </div>
+            <div class="mini-card">
+              <div class="mini-card-icon" style="background:rgba(78,205,196,0.2)">&#127942;</div>
+              <div>
+                <div class="mini-card-title">Desafio Avancado</div>
+                <div class="mini-card-sub">47 de 60 dias</div>
+                <div class="progress-bar-bg">
+                  <div class="progress-bar-fill" style="width:78%"></div>
+                </div>
+              </div>
+            </div>
+            <div class="mini-card">
+              <div class="mini-card-icon" style="background:rgba(129,199,132,0.2)">&#128200;</div>
+              <div>
+                <div class="mini-card-title">Score de Bem-estar</div>
+                <div class="mini-card-sub">82 / 100 pontos</div>
+                <div class="progress-bar-bg">
+                  <div class="progress-bar-fill" style="width:82%;background:linear-gradient(90deg,#81C784,#66BB6A)"></div>
+                </div>
+              </div>
+            </div>
+            <div class="mini-card">
+              <div class="mini-card-icon" style="background:rgba(255,183,77,0.2)">&#128293;</div>
+              <div>
+                <div class="mini-card-title">Melhor sequencia</div>
+                <div class="mini-card-sub">62 dias</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right phone: Forum -->
+      <div class="phone side-right">
+        <div class="phone-notch"></div>
+        <div class="phone-screen screen-forum">
+          <div class="screen-header" style="background:#fff;border-bottom:1px solid #e2e8f0">
+            <div>
+              <div class="screen-header-title" style="color:#2d3748">Forum da comunidade</div>
+              <div class="screen-header-sub">3 novas publicacoes</div>
+            </div>
+          </div>
+          <div class="screen-body" style="background:#f7fafc">
+            <div class="forum-post">
+              <div class="forum-post-title">Completei 30 dias!</div>
+              <div class="forum-post-body">Nunca achei que chegaria ate aqui, mas com o apoio de voces...</div>
+              <div class="forum-post-footer"><span class="forum-tag">&#10084; 24</span><span class="forum-tag">&#128172; 8</span></div>
+            </div>
+            <div class="forum-post">
+              <div class="forum-post-title">Dica para dias dificeis</div>
+              <div class="forum-post-body">Quando bate a vontade, eu abro o app e registro como estou...</div>
+              <div class="forum-post-footer"><span class="forum-tag">&#10084; 17</span><span class="forum-tag">&#128172; 5</span></div>
+            </div>
+            <div class="forum-post">
+              <div class="forum-post-title">Uma semana de desafio</div>
+              <div class="forum-post-body">Comecei o desafio de 7 dias e ja estou sentindo diferenca...</div>
+              <div class="forum-post-footer"><span class="forum-tag">&#10084; 11</span><span class="forum-tag">&#128172; 3</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-section">
+    <div class="stats-inner">
+      <div>
+        <div class="stat-number">90</div>
+        <div class="stat-label">dias no desafio maximo</div>
+      </div>
+      <div>
+        <div class="stat-number">5+</div>
+        <div class="stat-label">tipos de desafios</div>
+      </div>
+      <div>
+        <div class="stat-number">100%</div>
+        <div class="stat-label">gratuito para usar</div>
+      </div>
+      <div>
+        <div class="stat-number">24/7</div>
+        <div class="stat-label">comunidade ativa</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <section id="funcionalidades">
+    <div class="section-inner">
+      <div class="features-header">
+        <span class="section-tag">Funcionalidades</span>
+        <h2 class="section-title">Tudo o que voce precisa<br/>na palma da mao</h2>
+        <p class="section-subtitle">O CleanMind reune as ferramentas certas para apoiar cada etapa da sua recuperacao.</p>
+      </div>
+      <div class="features-grid">
+
+        <div class="feature-card">
+          <div class="feature-icon" style="background:rgba(91,143,163,0.12)">&#128197;</div>
+          <h3 class="feature-title">Contador de dias limpos</h3>
+          <p class="feature-desc">Visualize em tempo real quantos dias voce esta limpo. Cada dia e uma conquista que merece ser celebrada.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon" style="background:rgba(78,205,196,0.12)">&#128140;</div>
+          <h3 class="feature-title">Check-in emocional diario</h3>
+          <p class="feature-desc">Registre suas emocoes e gatilhos do dia. Identifique padroes e entenda melhor seus estados emocionais ao longo do tempo.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon" style="background:rgba(129,199,132,0.12)">&#127942;</div>
+          <h3 class="feature-title">Desafios progressivos</h3>
+          <p class="feature-desc">De 7 a 90 dias, os desafios te motivam a atingir novas metas. Escolha seu nivel e avance no seu proprio ritmo.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon" style="background:rgba(230,115,115,0.12)">&#128203;</div>
+          <h3 class="feature-title">Gestao de recaidas</h3>
+          <p class="feature-desc">Sem julgamentos. Registre o que aconteceu, reflita sobre os gatilhos e recomecea mais forte do que antes.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon" style="background:rgba(255,183,77,0.12)">&#128200;</div>
+          <h3 class="feature-title">Score de bem-estar</h3>
+          <p class="feature-desc">Acompanhe sua saude emocional com um score calculado a partir dos seus check-ins e autoavaliacao personalizada.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon" style="background:rgba(91,143,163,0.12)">&#128214;</div>
+          <h3 class="feature-title">Historico completo</h3>
+          <p class="feature-desc">Acesse todo o seu historico de check-ins e recaidas. Veja sua evolucao e celebre o quanto voce ja cresceu.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon" style="background:rgba(78,205,196,0.12)">&#128101;</div>
+          <h3 class="feature-title">Forum da comunidade</h3>
+          <p class="feature-desc">Compartilhe sua jornada, leia historias de outras pessoas e encontre suporte em uma comunidade que entende o que voce vive.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon" style="background:rgba(129,199,132,0.12)">&#129300;</div>
+          <h3 class="feature-title">Autoavaliacao personalizada</h3>
+          <p class="feature-desc">Responda 8 perguntas rapidas no onboarding para personalizar sua jornada. Reavalie a qualquer momento nas configuracoes.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon" style="background:rgba(91,143,163,0.12)">&#127763;</div>
+          <h3 class="feature-title">Modo escuro</h3>
+          <p class="feature-desc">Interface terapeutica em modo claro ou escuro, com paleta de cores projetada para conforto e bem-estar mental.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="como-funciona">
+    <div class="section-inner">
+      <div class="how-it-works-layout">
+        <div>
+          <span class="section-tag">Como funciona</span>
+          <h2 class="section-title">Simples de usar,<br/>poderoso no resultado</h2>
+          <p class="section-subtitle" style="margin-bottom:44px">Em poucos minutos por dia, o CleanMind te ajuda a manter o foco e a consistencia na sua recuperacao.</p>
+          <div class="steps-list">
+            <div class="step">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h4 class="step-title">Crie sua conta gratuitamente</h4>
+                <p class="step-desc">Cadastro rapido. Responda as perguntas de personalizacao e comece a registrar sua jornada.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h4 class="step-title">Registre seu primeiro dia</h4>
+                <p class="step-desc">Defina a data de inicio da sua jornada e escolha um desafio para manter a motivacao alta.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h4 class="step-title">Faca check-ins diarios</h4>
+                <p class="step-desc">Registre suas emocoes e gatilhos todos os dias. Em poucos segundos, voce constroi autoconhecimento.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <h4 class="step-title">Acompanhe seu progresso</h4>
+                <p class="step-desc">Veja seu score de bem-estar crescer, sua sequencia aumentar e celebre cada conquista com a comunidade.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="how-visual">
+          <div class="vis-row">
+            <div class="vis-icon">&#128197;</div>
+            <div class="vis-text">
+              <div class="vis-title">Dia 47 registrado</div>
+              <div class="vis-sub">Sequencia atual: 47 dias</div>
+            </div>
+            <span class="vis-badge green">+1 dia</span>
+          </div>
+          <div class="vis-row">
+            <div class="vis-icon">&#128140;</div>
+            <div class="vis-text">
+              <div class="vis-title">Check-in enviado</div>
+              <div class="vis-sub">Calmo, Grato, Focado</div>
+            </div>
+            <span class="vis-badge">Score +3</span>
+          </div>
+          <div class="vis-row">
+            <div class="vis-icon">&#127942;</div>
+            <div class="vis-text">
+              <div class="vis-title">Desafio Avancado</div>
+              <div class="vis-sub">78% concluido (47/60)</div>
+            </div>
+            <span class="vis-badge orange">Em andamento</span>
+          </div>
+          <div class="vis-row">
+            <div class="vis-icon">&#128200;</div>
+            <div class="vis-text">
+              <div class="vis-title">Score de bem-estar</div>
+              <div class="vis-sub">82/100 pontos</div>
+            </div>
+            <span class="vis-badge green">Otimo</span>
+          </div>
+          <div class="vis-row">
+            <div class="vis-icon">&#128293;</div>
+            <div class="vis-text">
+              <div class="vis-title">Melhor sequencia</div>
+              <div class="vis-sub">Recorde pessoal: 62 dias</div>
+            </div>
+            <span class="vis-badge">Top 10%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHALLENGES -->
+  <section id="desafios">
+    <div class="section-inner">
+      <div class="challenges-layout">
+        <div>
+          <span class="section-tag">Desafios</span>
+          <h2 class="section-title">Escolha seu nivel<br/>e supere seus limites</h2>
+          <p class="section-subtitle">Os desafios sao projetados para te motivar em cada fase da recuperacao. Comece do inicio ou va direto para o nivel mais alto.</p>
+        </div>
+        <div class="challenges-list">
+          <div class="challenge-item">
+            <span class="challenge-emoji">&#127807;</span>
+            <div class="challenge-info">
+              <div class="challenge-name">Iniciante</div>
+              <div class="challenge-desc">Perfeito para comecar sua jornada</div>
+            </div>
+            <span class="challenge-days">7 dias</span>
+          </div>
+          <div class="challenge-item">
+            <span class="challenge-emoji">&#127807;</span>
+            <div class="challenge-info">
+              <div class="challenge-name">Intermediario</div>
+              <div class="challenge-desc">Voce esta evoluindo muito bem</div>
+            </div>
+            <span class="challenge-days">15 dias</span>
+          </div>
+          <div class="challenge-item">
+            <span class="challenge-emoji">&#127795;</span>
+            <div class="challenge-info">
+              <div class="challenge-name">Avancado</div>
+              <div class="challenge-desc">Para os mais determinados</div>
+            </div>
+            <span class="challenge-days">30 dias</span>
+          </div>
+          <div class="challenge-item">
+            <span class="challenge-emoji">&#127942;</span>
+            <div class="challenge-info">
+              <div class="challenge-name">Expert</div>
+              <div class="challenge-desc">Para guerreiros experientes</div>
+            </div>
+            <span class="challenge-days">60 dias</span>
+          </div>
+          <div class="challenge-item">
+            <span class="challenge-emoji">&#128081;</span>
+            <div class="challenge-info">
+              <div class="challenge-name">Mestre</div>
+              <div class="challenge-desc">O desafio supremo</div>
+            </div>
+            <span class="challenge-days">90 dias</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMUNITY -->
+  <section id="comunidade">
+    <div class="section-inner">
+      <div class="community-layout">
+        <div>
+          <span class="section-tag">Comunidade</span>
+          <h2 class="section-title">Voce nao esta<br/>sozinho nessa</h2>
+          <p class="section-subtitle">No forum do CleanMind, pessoas reais compartilham suas historias, dicas e apoio mutuo. Uma comunidade construida com empatia e sem julgamentos.</p>
+          <ul style="margin-top:28px;display:flex;flex-direction:column;gap:12px;list-style:none">
+            <li style="display:flex;align-items:center;gap:10px;font-size:15px;color:var(--text-secondary)">
+              <span style="color:var(--success);font-size:18px">&#10003;</span> Compartilhe conquistas e marcos importantes
+            </li>
+            <li style="display:flex;align-items:center;gap:10px;font-size:15px;color:var(--text-secondary)">
+              <span style="color:var(--success);font-size:18px">&#10003;</span> Receba apoio nos momentos dificeis
+            </li>
+            <li style="display:flex;align-items:center;gap:10px;font-size:15px;color:var(--text-secondary)">
+              <span style="color:var(--success);font-size:18px">&#10003;</span> Interaja com curtidas e comentarios
+            </li>
+            <li style="display:flex;align-items:center;gap:10px;font-size:15px;color:var(--text-secondary)">
+              <span style="color:var(--success);font-size:18px">&#10003;</span> Gerencie suas proprias publicacoes
+            </li>
+          </ul>
+        </div>
+        <div class="posts-preview">
+          <div class="post-card">
+            <div class="post-header">
+              <div class="post-avatar" style="background:linear-gradient(135deg,#5B8FA3,#4ECDC4)">M</div>
+              <div>
+                <div class="post-author">Marcos T.</div>
+                <div class="post-time">Ha 2 horas</div>
+              </div>
+            </div>
+            <div class="post-title">Completei 30 dias! Nao acreditei que conseguiria</div>
+            <div class="post-body">Quando comecei achei que seria impossivel. Mas com o app acompanhando cada dia e a comunidade me apoiando, aqui estou. Obrigado a todos!</div>
+            <div class="post-footer">
+              <span class="post-action">&#10084; 24</span>
+              <span class="post-action">&#128172; 8 comentarios</span>
+            </div>
+          </div>
+          <div class="post-card">
+            <div class="post-header">
+              <div class="post-avatar" style="background:linear-gradient(135deg,#81C784,#66BB6A)">A</div>
+              <div>
+                <div class="post-author">Ana L.</div>
+                <div class="post-time">Ha 5 horas</div>
+              </div>
+            </div>
+            <div class="post-title">Dica: o check-in emocional mudou minha vida</div>
+            <div class="post-body">Antes eu nao conseguia identificar o que me levava a recair. Depois que comecei a registrar meus gatilhos, tudo ficou mais claro.</div>
+            <div class="post-footer">
+              <span class="post-action">&#10084; 41</span>
+              <span class="post-action">&#128172; 14 comentarios</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WELLNESS HIGHLIGHT -->
+  <div class="wellness-section">
+    <div class="wellness-inner">
+      <h2>Cuide da sua saude mental com inteligencia</h2>
+      <p>O CleanMind vai alem de contar dias. Ele te ajuda a entender e cuidar da sua saude emocional de forma continua e compassiva.</p>
+      <div class="wellness-features">
+        <div class="wellness-feat">
+          <div class="wellness-feat-icon">&#129504;</div>
+          <div class="wellness-feat-text">Score de bem-estar personalizado</div>
+        </div>
+        <div class="wellness-feat">
+          <div class="wellness-feat-icon">&#128200;</div>
+          <div class="wellness-feat-text">Evolucao emocional ao longo do tempo</div>
+        </div>
+        <div class="wellness-feat">
+          <div class="wellness-feat-icon">&#128270;</div>
+          <div class="wellness-feat-text">Identificacao de gatilhos</div>
+        </div>
+        <div class="wellness-feat">
+          <div class="wellness-feat-icon">&#128161;</div>
+          <div class="wellness-feat-text">Autoconhecimento e reflexao diaria</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DOWNLOAD -->
+  <section id="download">
+    <div class="download-inner section-inner">
+      <span class="section-tag">Download</span>
+      <h2 class="section-title">Comece sua jornada hoje</h2>
+      <p class="section-subtitle" style="margin:0 auto">Gratis, sem anuncios e com tudo o que voce precisa para uma recuperacao consistente e sustentavel.</p>
+      <div class="download-buttons">
+        <a href="#" class="store-btn">
+          <div class="store-btn-icon">&#63743;</div>
+          <div class="store-btn-text">
+            <div class="store-btn-sub">Baixar na</div>
+            <div class="store-btn-name">App Store</div>
+          </div>
+        </a>
+        <a href="#" class="store-btn">
+          <div class="store-btn-icon">&#9654;</div>
+          <div class="store-btn-text">
+            <div class="store-btn-sub">Disponivel no</div>
+            <div class="store-btn-name">Google Play</div>
+          </div>
+        </a>
+      </div>
+      <p class="coming-soon-note">Disponivel em breve nas lojas. Fique de olho!</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="CleanMind.jpg" alt="CleanMind logo" class="footer-logo-icon" />
+            <span class="footer-logo-text">CleanMind</span>
+          </div>
+          <p class="footer-brand-desc">Um aplicativo criado com cuidado para apoiar pessoas na jornada de recuperacao. Cada dia limpo e uma vitoria.</p>
+        </div>
+        <div class="footer-links-section">
+          <div class="footer-links-title">Aplicativo</div>
+          <ul class="footer-links-list">
+            <li><a href="#funcionalidades">Funcionalidades</a></li>
+            <li><a href="#como-funciona">Como funciona</a></li>
+            <li><a href="#desafios">Desafios</a></li>
+            <li><a href="#comunidade">Comunidade</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-section">
+          <div class="footer-links-title">Legal</div>
+          <ul class="footer-links-list">
+            <li><a href="#">Politica de Privacidade</a></li>
+            <li><a href="#">Termos de Uso</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-section">
+          <div class="footer-links-title">Download</div>
+          <ul class="footer-links-list">
+            <li><a href="#">App Store</a></li>
+            <li><a href="#">Google Play</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">&copy; 2025 CleanMind. Todos os direitos reservados.</span>
+        <span class="footer-love">Feito com <span>&#10084;</span> para quem escolhe recomecar</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
