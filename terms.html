@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Termos de Uso — CleanMind</title>
+  <meta name="description" content="Termos de Uso do CleanMind. Leia as condições de uso dos nossos serviços." />
+  <link rel="icon" href="CleanMind.jpg" type="image/jpeg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --primary: #5B8FA3;
+      --primary-dark: #4a7a8c;
+      --secondary: #4ECDC4;
+      --accent: #81C784;
+      --bg: #f7fafc;
+      --card: #ffffff;
+      --text: #2d3748;
+      --text-secondary: #4a5568;
+      --text-light: #718096;
+      --border: #e2e8f0;
+      --shadow: rgba(91, 143, 163, 0.15);
+      --radius: 16px;
+      --radius-sm: 10px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(247, 250, 252, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+    }
+
+    .nav-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .nav-brand img {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    .nav-back {
+      font-size: 14px;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-back:hover { color: var(--primary-dark); }
+
+    /* HERO */
+    .page-hero {
+      background: linear-gradient(135deg, #4a7a8c 0%, #2d5a6e 100%);
+      color: #fff;
+      padding: 64px 24px;
+      text-align: center;
+    }
+
+    .page-hero-tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+
+    .page-hero h1 {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .page-hero p {
+      font-size: 16px;
+      opacity: 0.85;
+      max-width: 480px;
+      margin: 0 auto 16px;
+    }
+
+    .page-hero-date {
+      font-size: 13px;
+      opacity: 0.7;
+    }
+
+    /* CONTENT */
+    .content-wrap {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 56px 24px 80px;
+    }
+
+    .notice-box {
+      background: rgba(91, 143, 163, 0.08);
+      border: 1px solid rgba(91, 143, 163, 0.25);
+      border-left: 4px solid var(--primary);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      margin-bottom: 40px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .section-block {
+      background: var(--card);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 32px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 12px var(--shadow);
+    }
+
+    .section-block h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-block h2 .num {
+      background: var(--primary);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .section-block h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin: 20px 0 8px;
+    }
+
+    .section-block p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+
+    .section-block p:last-child { margin-bottom: 0; }
+
+    .section-block ul {
+      padding-left: 0;
+      list-style: none;
+      margin: 8px 0 12px;
+    }
+
+    .section-block ul li {
+      font-size: 14px;
+      color: var(--text-secondary);
+      padding: 5px 0 5px 20px;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    .section-block ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 13px;
+      width: 6px;
+      height: 6px;
+      background: var(--secondary);
+      border-radius: 50%;
+    }
+
+    .highlight-box {
+      background: rgba(78, 205, 196, 0.08);
+      border: 1px solid rgba(78, 205, 196, 0.3);
+      border-radius: var(--radius-sm);
+      padding: 14px 18px;
+      margin: 16px 0;
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .warning-box {
+      background: rgba(255, 100, 100, 0.07);
+      border: 1px solid rgba(255, 100, 100, 0.25);
+      border-radius: var(--radius-sm);
+      padding: 14px 18px;
+      margin: 16px 0;
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 12px 0;
+    }
+
+    @media (max-width: 540px) {
+      .two-col { grid-template-columns: 1fr; }
+    }
+
+    .col-block {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+    }
+
+    .col-block-title {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+
+    .col-block-title.green { color: var(--accent); }
+    .col-block-title.red { color: #E57373; }
+
+    .col-block ul li::before {
+      background: var(--accent);
+    }
+
+    .col-block.col-block-red ul li::before {
+      background: #E57373;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .contact-item {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+    }
+
+    .contact-item-label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-light);
+      margin-bottom: 4px;
+    }
+
+    .contact-item-value {
+      font-size: 14px;
+      color: var(--primary);
+      font-weight: 500;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #1a202c;
+      color: rgba(255,255,255,0.6);
+      padding: 32px 24px;
+      text-align: center;
+    }
+
+    .footer-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .footer-brand img {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      object-fit: cover;
+    }
+
+    .footer-brand span {
+      font-weight: 700;
+      color: #fff;
+      font-size: 16px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: #fff; }
+
+    .footer-copy {
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <img src="CleanMind.jpg" alt="CleanMind" />
+        CleanMind
+      </a>
+      <a href="index.html" class="nav-back">&#8592; Voltar ao site</a>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <span class="page-hero-tag">Legal</span>
+    <h1>Termos de Uso</h1>
+    <p>Condições que regem o uso dos nossos aplicativos e serviços</p>
+    <span class="page-hero-date">Última atualização: Fevereiro de 2026</span>
+  </div>
+
+  <div class="content-wrap">
+
+    <div class="notice-box">
+      <strong>Importante:</strong> Leia estes termos cuidadosamente antes de usar nossos serviços. Ao criar uma conta ou usar qualquer aplicativo da JP Code Sistemas, você concorda com estas condições. Se não concordar, não utilize os aplicativos.
+    </div>
+
+    <div class="section-block">
+      <h2><span class="num">1</span> Aceitação dos Termos</h2>
+      <p>Ao criar uma conta ou usar qualquer aplicativo da JP Code Sistemas, você confirma que:</p>
+      <ul>
+        <li>Tem pelo menos 16 anos de idade</li>
+        <li>Leu, compreendeu e concorda com estes Termos de Uso</li>
+        <li>Leu e concorda com a Política de Privacidade</li>
+        <li>Tem capacidade legal para aceitar estes termos</li>
+      </ul>
+    </div>
+
+    <div class="section-block">
+      <h2><span class="num">2</span> Descrição dos Serviços</h2>
+      <p>A JP Code Sistemas desenvolve aplicativos móveis e web para diversos propósitos. Nossos serviços incluem:</p>
+      <h3>2.1 CleanMind App</h3>
+      <p>Aplicativo de apoio à recuperação, oferecendo:</p>
+      <ul>
+        <li>Contador de sobriedade e rastreamento de progresso</li>
+        <li>Check-ins emocionais diários</li>
+        <li>Ferramentas de acompanhamento pessoal</li>
+        <li>Recursos de apoio e motivação</li>
+        <li>Fórum de comunidade</li>
+      </ul>
+      <div class="highlight-box">
+        <strong>Versão MVP:</strong> O CleanMind está atualmente em sua versão MVP (Produto Mínimo Viável). Recursos adicionais serão implementados conforme o feedback dos usuários.
+      </div>
+    </div>
+
+    <div class="section-block">
+      <h2><span class="num">3</span> Cadastro e Conta do Usuário</h2>
+      <h3>3.1 Criação de Conta</h3>
+      <p>Você deve fornecer informações precisas e é responsável por:</p>
+      <ul>
+        <li>Manter a confidencialidade de suas credenciais</li>
+        <li>Todas as atividades realizadas em sua conta</li>
+        <li>Notificar imediatamente sobre qualquer uso não autorizado</li>
+      </ul>
+      <h3>3.2 Segurança da Conta</h3>
+      <p>Você concorda em:</p>
+      <ul>
+        <li>Não compartilhar sua senha com terceiros</li>
+        <li>Usar uma senha forte e única</li>
+        <li>Fazer logout em dispositivos compartilhados</li>
+        <li>Notificar sobre violações de segurança</li>
+      </ul>
+    </div>
+
+    <div class="section-block">
+      <h2><span class="num">4</span> Uso Aceitável</h2>
+      <div class="two-col">
+        <div class="col-block">
+          <div class="col-block-title green">Você concorda em</div>
+          <ul>
+            <li>Usar os serviços apenas para fins legais e legítimos</li>
+            <li>Fornecer informações verdadeiras</li>
+            <li>Respeitar a propriedade intelectual</li>
+            <li>Não interferir no funcionamento da plataforma</li>
+          </ul>
+        </div>
+        <div class="col-block col-block-red">
+          <div class="col-block-title red">Você NÃO pode</div>
+          <ul>
+            <li>Usar para finalidades ilegais</li>
+            <li>Transmitir vírus ou malware</li>
+            <li>Fazer engenharia reversa</li>
+            <li>Criar contas falsas</li>
+            <li>Assediar ou ameaçar usuários</li>
+            <li>Usar bots ou scripts automatizados</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <h2><span class="num">5</span> Conteúdo do Usuário</h2>
+      <h3>5.1 Propriedade do Conteúdo</h3>
+      <p>Você mantém todos os direitos sobre o conteúdo que cria. Ao publicar, você concede à JP Code Sistemas uma licença limitada para:</p>
+      <ul>
+        <li>Armazenar e processar seu conteúdo</li>
+        <li>Fornecer os serviços solicitados</li>
+        <li>Melhorar os recursos da plataforma</li>
+      </ul>
+      <h3>5.2 Responsabilidade pelo Conteúdo</h3>
+      <p>Você garante que seu conteúdo:</p>
+      <ul>
+        <li>Não viola direitos de terceiros</li>
+        <li>Não contém material ilegal ou ofensivo</li>
+        <li>É preciso e não enganoso</li>
+        <li>Está em conformidade com estes Termos</li>
+      </ul>
+    </div>
+
+    <div class="section-block">
+      <h2><span class="num">6</span> Propriedade Intelectual</h2>
+      <p>Todos os direitos, títulos e interesses nos aplicativos da JP Code Sistemas pertencem exclusivamente à empresa, protegidos por leis de direitos autorais e marcas registradas. Isso inclui:</p>
+      <ul>
+        <li>Software e código-fonte</li>
+        <li>Design, layout e interface do usuário</li>
+        <li>Logotipos e marcas registradas</li>
+        <li>Conteúdo criado pela empresa</li>
+        <li>Recursos e algoritmos proprietários</li>
+      </ul>
+    </div>
+
+    <div class="section-block">
+      <h2><span class="num">7</span> Isenção de Garantias e Limitação de Responsabilidade</h2>
+      <div class="warning-box">
+        <strong>IMPORTANTE — Não somos profissionais de saúde:</strong> O CleanMind e outros aplicativos da JP Code Sistemas são ferramentas de suporte e acompanhamento pessoal. NÃO somos profissionais de saúde mental, médicos, terapeutas ou conselheiros licenciados.
+      </div>
+      <h3>7.2 Isenção de Responsabilidade Médica</h3>
+      <p>Nossos serviços:</p>
+      <ul>
+        <li>NÃO substituem aconselhamento médico ou psicológico profissional</li>
+        <li>NÃO devem ser usados em situações de emergência</li>
+        <li>NÃO garantem resultados específicos de recuperação</li>
+        <li>São ferramentas de apoio e autoajuda apenas</li>
+      </ul>
+      <p>Sempre consulte um profissional de saúde qualificado para questões relacionadas à saúde física ou mental.</p>
+      <h3>7.3 Serviços "Como Estão"</h3>
+      <p>Os serviços são fornecidos "como estão" e "conforme disponíveis", sem garantias de qualquer tipo, expressas ou implícitas.</p>
+      <h3>7.4 Limitação de Responsabilidade</h3>
+      <p>A JP Code Sistemas NÃO será responsável por danos indiretos, consequentes, perda de dados ou lucros resultantes do uso ou impossibilidade de usar os serviços.</p>
+    </div>
+
+    <div class="section-block">
+      <h2><span class="num">8</span> Modificações nos Serviços</h2>
+      <p>A JP Code Sistemas reserva o direito de:</p>
+      <ul>
+        <li>Modificar, suspender ou descontinuar serviços</li>
+        <li>Atualizar e melhorar recursos</li>
+        <li>Alterar preços, com aviso prévio adequado</li>
+        <li>Implementar limites de uso</li>
+      </ul>
+    </div>
+
+    <div class="section-block">
+      <h2><span class="num">9</span> Rescisão</h2>
+      <h3>9.1 Rescisão pelo Usuário</h3>
+      <p>Você pode encerrar sua conta a qualquer momento. Após a rescisão, seu acesso será interrompido imediatamente e seus dados serão excluídos conforme a Política de Privacidade.</p>
+      <h3>9.2 Rescisão pela JP Code Sistemas</h3>
+      <p>Podemos suspender ou encerrar sua conta imediatamente se:</p>
+      <ul>
+        <li>Você violar estes Termos de Uso</li>
+        <li>Houver suspeita de fraude ou atividade maliciosa</li>
+        <li>Por exigências legais</li>
+        <li>Para proteger a segurança de outros usuários</li>
+      </ul>
+    </div>
+
+    <div class="section-block">
+      <h2><span class="num">10</span> Indenização</h2>
+      <p>Você concorda em indenizar e isentar a JP Code Sistemas de quaisquer reivindicações, danos e despesas resultantes de:</p>
+      <ul>
+        <li>Seu uso dos serviços</li>
+        <li>Violação destes Termos de Uso</li>
+        <li>Violação de direitos de terceiros</li>
+        <li>Conteúdo publicado por você na plataforma</li>
+      </ul>
+    </div>
+
+    <div class="section-block">
+      <h2><span class="num">11</span> Alterações nos Termos</h2>
+      <p>Podemos modificar estes Termos de Uso a qualquer momento. Quando realizarmos alterações significativas, você será notificado por:</p>
+      <ul>
+        <li>Notificação dentro do aplicativo</li>
+        <li>E-mail cadastrado</li>
+        <li>Aviso destacado no site</li>
+      </ul>
+      <p>O uso continuado dos serviços após as alterações constitui aceitação dos novos termos.</p>
+    </div>
+
+    <div class="section-block">
+      <h2><span class="num">12</span> Lei Aplicável e Jurisdição</h2>
+      <p>Estes Termos de Uso são regidos pelas leis do Brasil. Qualquer disputa será submetida à jurisdição dos tribunais de Divinópolis - MG, Brasil.</p>
+    </div>
+
+    <div class="section-block">
+      <h2><span class="num">13</span> Disposições Gerais</h2>
+      <h3>13.1 Acordo Integral</h3>
+      <p>Estes Termos, junto com a Política de Privacidade, constituem o acordo integral entre você e a JP Code Sistemas.</p>
+      <h3>13.2 Divisibilidade</h3>
+      <p>Se qualquer disposição destes Termos for considerada inválida ou inexequível, as demais disposições permanecerão em pleno vigor.</p>
+      <h3>13.3 Renúncia</h3>
+      <p>A falha em fazer cumprir qualquer direito ou disposição não constitui renúncia a esse direito ou disposição.</p>
+      <h3>13.4 Cessão</h3>
+      <p>Você não pode ceder seus direitos ou obrigações sob estes Termos sem o consentimento prévio por escrito da JP Code Sistemas.</p>
+    </div>
+
+    <div class="section-block">
+      <h2><span class="num">14</span> Contato</h2>
+      <p>Para dúvidas sobre estes Termos de Uso, entre em contato com a JP Code Sistemas:</p>
+      <div class="contact-grid">
+        <div class="contact-item">
+          <div class="contact-item-label">E-mail</div>
+          <div class="contact-item-value">dev@jpcodesistemas.com.br</div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-label">Telefone</div>
+          <div class="contact-item-value">(31) 99214-7924</div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-label">Endereço</div>
+          <div class="contact-item-value">Divinópolis - MG, Brasil</div>
+        </div>
+      </div>
+      <p style="margin-top: 20px;">Agradecemos por usar nossos serviços! Estamos comprometidos em fornecer ferramentas úteis para apoiar sua jornada pessoal.</p>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="CleanMind.jpg" alt="CleanMind" />
+        <span>CleanMind</span>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Início</a>
+        <a href="privacy.html">Política de Privacidade</a>
+        <a href="terms.html">Termos de Uso</a>
+      </div>
+      <p class="footer-copy">&copy; 2025 CleanMind. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Política de Privacidade — CleanMind</title>
+  <meta name="description" content="Política de Privacidade do CleanMind. Saiba como coletamos, usamos e protegemos seus dados." />
+  <link rel="icon" href="CleanMind.jpg" type="image/jpeg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --primary: #5B8FA3;
+      --primary-dark: #4a7a8c;
+      --secondary: #4ECDC4;
+      --accent: #81C784;
+      --bg: #f7fafc;
+      --card: #ffffff;
+      --text: #2d3748;
+      --text-secondary: #4a5568;
+      --text-light: #718096;
+      --border: #e2e8f0;
+      --shadow: rgba(91, 143, 163, 0.15);
+      --radius: 16px;
+      --radius-sm: 10px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(247, 250, 252, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+    }
+
+    .nav-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .nav-brand img {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    .nav-back {
+      font-size: 14px;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-back:hover { color: var(--primary-dark); }
+
+    /* HERO */
+    .page-hero {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: #fff;
+      padding: 64px 24px;
+      text-align: center;
+    }
+
+    .page-hero-tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+
+    .page-hero h1 {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .page-hero p {
+      font-size: 16px;
+      opacity: 0.85;
+      max-width: 480px;
+      margin: 0 auto 16px;
+    }
+
+    .page-hero-date {
+      font-size: 13px;
+      opacity: 0.7;
+    }
+
+    /* CONTENT */
+    .content-wrap {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 56px 24px 80px;
+    }
+
+    .notice-box {
+      background: rgba(91, 143, 163, 0.08);
+      border: 1px solid rgba(91, 143, 163, 0.25);
+      border-left: 4px solid var(--primary);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      margin-bottom: 40px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .section-block {
+      background: var(--card);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 32px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 12px var(--shadow);
+    }
+
+    .section-block h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-block h2 .num {
+      background: var(--primary);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .section-block h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin: 20px 0 8px;
+    }
+
+    .section-block p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+
+    .section-block p:last-child { margin-bottom: 0; }
+
+    .section-block ul {
+      padding-left: 0;
+      list-style: none;
+      margin: 8px 0 12px;
+    }
+
+    .section-block ul li {
+      font-size: 14px;
+      color: var(--text-secondary);
+      padding: 5px 0 5px 20px;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    .section-block ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 13px;
+      width: 6px;
+      height: 6px;
+      background: var(--secondary);
+      border-radius: 50%;
+    }
+
+    .highlight-box {
+      background: rgba(78, 205, 196, 0.08);
+      border: 1px solid rgba(78, 205, 196, 0.3);
+      border-radius: var(--radius-sm);
+      padding: 14px 18px;
+      margin: 16px 0;
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .warning-box {
+      background: rgba(255, 183, 77, 0.1);
+      border: 1px solid rgba(255, 183, 77, 0.4);
+      border-radius: var(--radius-sm);
+      padding: 14px 18px;
+      margin: 16px 0;
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .contact-item {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+    }
+
+    .contact-item-label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-light);
+      margin-bottom: 4px;
+    }
+
+    .contact-item-value {
+      font-size: 14px;
+      color: var(--primary);
+      font-weight: 500;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #1a202c;
+      color: rgba(255,255,255,0.6);
+      padding: 32px 24px;
+      text-align: center;
+    }
+
+    .footer-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .footer-brand img {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      object-fit: cover;
+    }
+
+    .footer-brand span {
+      font-weight: 700;
+      color: #fff;
+      font-size: 16px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: #fff; }
+
+    .footer-copy {
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <img src="CleanMind.jpg" alt="CleanMind" />
+        CleanMind
+      </a>
+      <a href="index.html" class="nav-back">&#8592; Voltar ao site</a>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <span class="page-hero-tag">Legal</span>
+    <h1>Política de Privacidade</h1>
+    <p>Seu compromisso com a privacidade e segurança dos seus dados</p>
+    <span class="page-hero-date">Última atualização: Fevereiro de 2026</span>
+  </div>
+
+  <div class="content-wrap">
+
+    <div class="notice-box">
+      <strong>Importante:</strong> Ao utilizar nossos aplicativos, você concorda com os termos descritos nesta Política de Privacidade. Leia com atenção antes de usar o CleanMind.
+    </div>
+
+    <div class="section-block">
+      <h2><span class="num">0</span> Introdução</h2>
+      <p>A JP Code Sistemas ("nós", "nosso" ou "empresa") está comprometida em proteger a privacidade e segurança dos dados pessoais dos usuários de nossos aplicativos e serviços. Esta Política de Privacidade descreve como coletamos, usamos, armazenamos e protegemos suas informações pessoais.</p>
+    </div>
+
+    <div class="section-block">
+      <h2><span class="num">1</span> Informações que Coletamos</h2>
+      <h3>1.1 CleanMind App</h3>
+      <p>O CleanMind coleta as seguintes informações:</p>
+      <ul>
+        <li><strong>Informações de Cadastro:</strong> Nome completo, endereço de e-mail, número de telefone (opcional)</li>
+        <li><strong>Dados de Saúde e Bem-Estar:</strong> Registros emocionais diários, dados de progresso, contador de sobriedade, check-ins pessoais</li>
+        <li><strong>Conteúdo do Usuário:</strong> Posts, comentários, objetivos, reflexões e diário pessoal</li>
+        <li><strong>Identificadores Técnicos:</strong> User ID e UCode</li>
+        <li><strong>Dados de Uso:</strong> Timestamps de atividades, frequência de uso, padrões de interação</li>
+      </ul>
+      <div class="highlight-box">
+        <strong>Nota sobre MVP:</strong> O CleanMind está atualmente em fase MVP (Produto Mínimo Viável). Os tipos de dados coletados podem ser expandidos em versões futuras.
+      </div>
+    </div>
+
+    <div class="section-block">
+      <h2><span class="num">2</span> Como Usamos Suas Informações</h2>
+      <p>Utilizamos suas informações para:</p>
+      <ul>
+        <li>Fornecer e melhorar nossos serviços</li>
+        <li>Personalizar sua experiência no aplicativo</li>
+        <li>Acompanhar seu progresso na recuperação</li>
+        <li>Enviar comunicações e notificações relevantes</li>
+        <li>Oferecer suporte ao usuário</li>
+        <li>Analisar e melhorar funcionalidades</li>
+        <li>Garantir a segurança da plataforma</li>
+        <li>Cumprir obrigações legais</li>
+      </ul>
+    </div>
+
+    <div class="section-block">
+      <h2><span class="num">3</span> Base Legal para Processamento (LGPD)</h2>
+      <p>Processamos seus dados com base nas seguintes hipóteses legais:</p>
+      <ul>
+        <li><strong>Consentimento:</strong> Ao criar conta e utilizar nossos serviços</li>
+        <li><strong>Execução de contrato:</strong> Para fornecer os serviços solicitados</li>
+        <li><strong>Cumprimento legal:</strong> Quando exigido por lei</li>
+        <li><strong>Legítimo interesse:</strong> Para melhorias e segurança</li>
+      </ul>
+      <div class="warning-box">
+        <strong>Dados Sensíveis:</strong> Informações sobre recuperação e saúde mental são consideradas dados sensíveis. Coletamos APENAS com seu consentimento explícito e para fins específicos de funcionamento do aplicativo.
+      </div>
+    </div>
+
+    <div class="section-block">
+      <h2><span class="num">4</span> Compartilhamento de Informações</h2>
+      <p>A JP Code Sistemas <strong>NÃO vende, aluga ou comercializa</strong> dados pessoais. Podemos compartilhar informações apenas nos seguintes casos:</p>
+      <ul>
+        <li><strong>Provedores de Serviços:</strong> Parceiros técnicos sob acordos de confidencialidade</li>
+        <li><strong>Requisitos Legais:</strong> Quando exigido por autoridade competente</li>
+        <li><strong>Proteção de Direitos:</strong> Para proteger direitos e segurança</li>
+        <li><strong>Transferência de Negócio:</strong> Em caso de fusão ou aquisição, com aviso prévio</li>
+      </ul>
+      <div class="highlight-box">
+        <strong>Garantia:</strong> Nunca compartilharemos seus dados de saúde ou registros de recuperação com terceiros para fins de marketing ou publicidade.
+      </div>
+    </div>
+
+    <div class="section-block">
+      <h2><span class="num">5</span> Armazenamento e Segurança de Dados</h2>
+      <h3>5.1 Medidas de Segurança</h3>
+      <ul>
+        <li>Criptografia em trânsito e em repouso</li>
+        <li>Controles de acesso rigorosos</li>
+        <li>Monitoramento contínuo de segurança</li>
+        <li>Revisões regulares de vulnerabilidades</li>
+        <li>Backups seguros e redundantes</li>
+        <li>Protocolos de resposta a incidentes</li>
+      </ul>
+      <h3>5.2 Localização dos Dados</h3>
+      <p>Seus dados são armazenados em servidores no Brasil ou em países que oferecem proteção adequada, conforme exigido pela LGPD.</p>
+      <h3>5.3 Retenção de Dados</h3>
+      <p>Mantemos seus dados apenas pelo tempo necessário para fornecer os serviços. Quando você solicitar a exclusão da conta, seus dados serão permanentemente deletados dentro de 30 dias.</p>
+    </div>
+
+    <div class="section-block">
+      <h2><span class="num">6</span> Seus Direitos sob a LGPD</h2>
+      <p>Como titular de dados, você tem os seguintes direitos:</p>
+      <ul>
+        <li><strong>Confirmação e Acesso:</strong> Saber se tratamos seus dados e acessá-los</li>
+        <li><strong>Correção:</strong> Corrigir dados incompletos ou desatualizados</li>
+        <li><strong>Anonimização ou Bloqueio:</strong> Para dados desnecessários ou excessivos</li>
+        <li><strong>Eliminação:</strong> Solicitar a exclusão de dados tratados com consentimento</li>
+        <li><strong>Portabilidade:</strong> Receber seus dados em formato estruturado</li>
+        <li><strong>Informação:</strong> Saber com quem compartilhamos seus dados</li>
+        <li><strong>Revogação do Consentimento:</strong> A qualquer momento, sem custos</li>
+        <li><strong>Oposição:</strong> Se discordar do tratamento realizado</li>
+      </ul>
+      <p>Responderemos à sua solicitação dentro do prazo legal de 15 dias. Entre em contato:</p>
+      <div class="contact-grid">
+        <div class="contact-item">
+          <div class="contact-item-label">E-mail</div>
+          <div class="contact-item-value">dev@jpcodesistemas.com.br</div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-label">Telefone</div>
+          <div class="contact-item-value">(31) 99214-7924</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <h2><span class="num">7</span> Cookies e Tecnologias Similares</h2>
+      <p>Utilizamos cookies e tecnologias similares para:</p>
+      <ul>
+        <li>Manter sua sessão ativa</li>
+        <li>Lembrar suas preferências</li>
+        <li>Analisar padrões de uso</li>
+        <li>Melhorar a experiência do usuário</li>
+      </ul>
+    </div>
+
+    <div class="section-block">
+      <h2><span class="num">8</span> Privacidade de Menores</h2>
+      <p>Nossos serviços não são destinados a menores de 18 anos. Não coletamos intencionalmente informações pessoais de menores. Se identificarmos que coletamos dados de um menor, os excluiremos imediatamente.</p>
+    </div>
+
+    <div class="section-block">
+      <h2><span class="num">9</span> Links para Sites de Terceiros</h2>
+      <p>Nossos aplicativos podem conter links para sites de terceiros. Não somos responsáveis pelas práticas de privacidade desses sites. Recomendamos que você leia a política de privacidade de qualquer site externo que visitar.</p>
+    </div>
+
+    <div class="section-block">
+      <h2><span class="num">10</span> Alterações nesta Política</h2>
+      <p>Podemos atualizar esta Política de Privacidade periodicamente. Quando realizarmos alterações significativas, você será notificado por:</p>
+      <ul>
+        <li>Notificação dentro do aplicativo</li>
+        <li>E-mail cadastrado</li>
+        <li>Aviso destacado em nosso site</li>
+      </ul>
+    </div>
+
+    <div class="section-block">
+      <h2><span class="num">11</span> Contato e Encarregado de Dados (DPO)</h2>
+      <p>Para dúvidas, solicitações ou exercício dos seus direitos, entre em contato com a JP Code Sistemas:</p>
+      <div class="contact-grid">
+        <div class="contact-item">
+          <div class="contact-item-label">E-mail</div>
+          <div class="contact-item-value">dev@jpcodesistemas.com.br</div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-label">Telefone</div>
+          <div class="contact-item-value">(31) 99214-7924</div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-label">Endereço</div>
+          <div class="contact-item-value">Divinópolis - MG, Brasil</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <h2><span class="num">12</span> Autoridade Nacional de Proteção de Dados (ANPD)</h2>
+      <p>Você tem o direito de apresentar uma reclamação à Autoridade Nacional de Proteção de Dados (ANPD) se acreditar que o processamento dos seus dados viola a LGPD.</p>
+      <p>Mais informações em: <strong>www.gov.br/anpd</strong></p>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="CleanMind.jpg" alt="CleanMind" />
+        <span>CleanMind</span>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Início</a>
+        <a href="privacy.html">Política de Privacidade</a>
+        <a href="terms.html">Termos de Uso</a>
+      </div>
+      <p class="footer-copy">&copy; 2025 CleanMind. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
